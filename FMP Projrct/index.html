@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Zaroon Rentals | Monthly Homes in Federal B Area</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fefaf5;
+      color: #2c241a;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-up {
+      animation: fadeSlideUp 0.6s ease forwards;
+    }
+
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    header {
+      background: #ffffffef;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+      row-gap: 12px;
+    }
+
+    .logo h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(130deg, #b55b1c, #8b3f0f);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #9b7a5a;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3e2f21;
+      transition: all 0.2s;
+      font-size: 1rem;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #bc6c25;
+      border-bottom-color: #bc6c25;
+    }
+
+    .section {
+      display: none;
+      padding: 70px 0 100px;
+      animation: fadeSlideUp 0.5s ease;
+    }
+    .active-section {
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0 0 50px 0;
+      position: relative;
+      display: inline-block;
+      color: #2c241a;
+      letter-spacing: -0.3px;
+    }
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -18px;
+      left: 0;
+      width: 80px;
+      height: 5px;
+      background: linear-gradient(90deg, #bc6c25, #d4833f);
+      border-radius: 3px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f6efdf, #fdf7ed);
+      border-radius: 48px;
+      padding: 72px 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 64px;
+      margin-bottom: 70px;
+    }
+    .hero-text {
+      flex: 1.2;
+      max-width: 520px;
+    }
+    .hero-text h2 {
+      font-size: 3.2rem;
+      font-weight: 900;
+      line-height: 1.15;
+      color: #2c241a;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      margin: 20px 0 32px;
+      color: #5e4b34;
+      line-height: 1.7;
+    }
+    .hero-img {
+      background: #e2d5c2;
+      width: 380px;
+      height: 300px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      background-image: radial-gradient(circle at 20% 35%, #efeadb, #dacfbb);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      font-size: 0.95rem;
+    }
+
+    .houses-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      margin: 50px 0 70px;
+    }
+    .house-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+    .house-card:hover {
+      transform: translateY(-14px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      border-color: #bc6c25;
+    }
+    .img-placeholder {
+      width: 100%;
+      height: 230px;
+      background: #e7ddce;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-image: repeating-linear-gradient(45deg, #f1e7da 0px, #f1e7da 3px, #e3d7c5 3px, #e3d7c5 12px);
+      font-weight: 500;
+      color: #a18462;
+      flex-shrink: 0;
+    }
+    .house-details {
+      padding: 24px 22px 28px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .house-details h3 {
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .price {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #bc6c25;
+      margin: 12px 0 6px;
+    }
+    .features {
+      display: flex;
+      gap: 18px;
+      margin: 16px 0;
+      font-size: 0.85rem;
+      color: #7c684e;
+      flex-wrap: wrap;
+    }
+    .house-details p {
+      flex-grow: 1;
+    }
+    .book-now-btn {
+      background: #f0e9df;
+      border: 2px solid #e0d5c6;
+      width: 100%;
+      padding: 12px;
+      border-radius: 40px;
+      font-weight: 700;
+      margin-top: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+    .book-now-btn:hover {
+      background: #bc6c25;
+      color: white;
+      border-color: #bc6c25;
+      transform: translateY(-2px);
+    }
+    .book-now-btn:active {
+      transform: scale(0.98);
+    }
+
+    .booking-form-card {
+      background: white;
+      border-radius: 32px;
+      padding: 52px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      margin-bottom: 80px;
+      max-width: 800px;
+      border: 1px solid #f5f1eb;
+    }
+    .booking-form-card h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #2c241a;
+    }
+    .booking-form-card > p {
+      color: #5e4b34;
+      margin-bottom: 36px;
+      font-size: 1rem;
+    }
+    .booking-form-card form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .form-group:nth-child(4),
+    .form-group:nth-child(6) {
+      grid-column: 1 / -1;
+    }
+    .booking-form-card .submit-btn {
+      grid-column: 1 / -1;
+    }
+    .form-group {
+      margin-bottom: 0;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: #3e2f21;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e8dfd0;
+      border-radius: 12px;
+      font-family: inherit;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      background: #faf8f6;
+    }
+    input::placeholder {
+      color: #a18462;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #bc6c25;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(188,108,37,0.12), 0 4px 12px rgba(188,108,37,0.08);
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .submit-btn {
+      background: #bc6c25;
+      color: white;
+      border: none;
+      padding: 16px 40px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-top: 0;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(188,108,37,0.2);
+    }
+    .submit-btn:hover {
+      background: #9c551e;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(188,108,37,0.3);
+    }
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Admin page specific */
+    .admin-panel {
+      background: white;
+      border-radius: 36px;
+      padding: 36px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+      margin-bottom: 56px;
+    }
+    .admin-panel h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .admin-panel > p {
+      color: #5e4b34;
+      margin-bottom: 24px;
+    }
+    .admin-login-area {
+      text-align: center;
+      padding: 48px 20px;
+    }
+    .admin-login-area input {
+      width: 280px;
+      margin: 16px auto;
+      display: inline-block;
+    }
+    .bookings-table-wrapper {
+      overflow-x: auto;
+      margin-top: 32px;
+      border-radius: 28px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 14px 12px;
+      text-align: left;
+      border-bottom: 1px solid #ede3d6;
+      word-wrap: break-word;
+    }
+    th {
+      background: #f7f0e6;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    td {
+      font-size: 0.95rem;
+    }
+    .admin-controls {
+      background: #f9f3ea;
+      border-radius: 28px;
+      padding: 18px 24px;
+      margin-top: 20px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .export-btn {
+      background: #2c6e2c;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-right: 0;
+      font-size: 0.95rem;
+    }
+    .export-btn:hover {
+      background: #1f5320;
+      transform: translateY(-2px);
+    }
+    .clear-btn {
+      background: #9e6d4b;
+    }
+    .clear-btn:hover {
+      background: #7d5538;
+    }
+    .about-content {
+      background: white;
+      border-radius: 44px;
+      padding: 48px;
+      margin: 20px 0;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
+    }
+    .about-content h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+    }
+    .about-text {
+      flex: 2;
+      min-width: 280px;
+    }
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin: 28px 0 12px;
+      color: #bc6c25;
+    }
+    .about-image {
+      flex: 1;
+      background: #e2d5c2;
+      border-radius: 32px;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-width: 280px;
+    }
+    footer {
+      background: #1f2c28;
+      color: #dcd0bd;
+      padding: 48px 0 28px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .footer-col {
+      flex: 1;
+      min-width: 200px;
+    }
+    .footer-col h4 {
+      color: #f7e5cf;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+    .footer-col p {
+      margin-bottom: 8px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .copyright {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      border-top: 1px solid #3a4b45;
+      padding-top: 24px;
+    }
+    @media (max-width: 1200px) {
+      .houses-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .hero {
+        padding: 56px 48px;
+        gap: 48px;
+      }
+      .hero-text h2 {
+        font-size: 2.8rem;
+      }
+      .hero-img {
+        width: 320px;
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 20px;
+      }
+      .navbar {
+        padding: 16px 0;
+      }
+      .logo h1 {
+        font-size: 1.6rem;
+      }
+      .nav-links {
+        width: 100%;
+        gap: 16px;
+        justify-content: flex-start;
+      }
+      .hero {
+        padding: 32px 24px;
+        gap: 24px;
+      }
+      .hero-text h2 {
+        font-size: 2rem;
+      }
+      .hero-text p {
+        font-size: 1rem;
+      }
+      .hero-img {
+        width: 100%;
+        height: 200px;
+        flex: 1;
+        min-width: 200px;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .houses-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .booking-form-card, .admin-panel, .about-content {
+        padding: 28px 20px;
+      }
+      .about-grid {
+        gap: 32px;
+      }
+      .about-text h3 {
+        font-size: 1.4rem;
+      }
+      .about-image {
+        min-height: 250px;
+      }
+      .footer-grid {
+        gap: 28px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 0;
+      }
+      .logo {
+        width: 100%;
+      }
+      .logo h1 {
+        font-size: 1.4rem;
+      }
+      .logo span {
+        font-size: 0.7rem;
+      }
+      .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .nav-links a {
+        display: block;
+        padding: 10px 0;
+        border-bottom: none;
+        border-left: 2px solid transparent;
+        padding-left: 8px;
+      }
+      .nav-links a:hover, .nav-links a.active {
+        border-bottom: none;
+        border-left-color: #bc6c25;
+      }
+      .section {
+        padding: 24px 0 48px;
+      }
+      .hero {
+        padding: 24px 16px;
+        flex-direction: column;
+      }
+      .hero-text h2 {
+        font-size: 1.6rem;
+      }
+      .hero-img {
+        min-width: 100%;
+        height: 160px;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 0.95rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+      .booking-form-card, .admin-panel, .about-content {
+        padding: 20px 16px;
+        border-radius: 24px;
+      }
+      .admin-login-area input {
+        width: 100% !important;
+      }
+      .about-text h3 {
+        font-size: 1.2rem;
+        margin: 20px 0 10px;
+      }
+      .admin-controls {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .export-btn {
+        width: 100%;
+      }
+      .footer-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+    .status-badge {
+      font-size: 0.85rem;
+      font-weight: 500;
+      background: #e0d5c6;
+      padding: 6px 14px;
+      border-radius: 40px;
+      display: inline-block;
+    }
+    .admin-link {
+      background: #6c4e2e;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-left: 20px;
+    }
+    .admin-link:hover {
+      background: #8b623c;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>🏡 Zaroon Rentals</h1>
+        <span>monthly homes • trusted since 2015</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" data-section="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-section="about" class="nav-link">About Us</a></li>
+        <li><a href="#" data-section="booking" class="nav-link">📅 Booking</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME SECTION -->
+  <section id="home-section" class="section active-section">
+    <div class="container">
+      <div class="hero animate-up">
+        <div class="hero-text">
+          <h2>Find your perfect <br>monthly rental home</h2>
+          <p>📍 Federal B Area, Block 1 — Ishaqabad C28 floors 1-4. Clean, safe & fully managed by Zaroon.</p>
+          <button class="submit-btn" id="exploreBookBtn">Book a house →</button>
+        </div>
+        
+          <img src="./images/exterior.png" alt="exterior" class="hero-img"  >
+  
+      </div>
+
+      <h2 class="section-title">✨ Available monthly rentals (Ishaqabad C28)</h2>
+      <div class="houses-grid" id="houses-grid"></div>
+      
+      <div style="background: #faf2e7; border-radius: 32px; padding: 28px; margin: 40px 0; text-align:center;">
+        <h3>🏢 Office address</h3>
+        <p style="font-weight:500;">Federal B Area, Block 1, House No B19, Karachi</p>
+        <p>📞 +92 321 111 2233  |  ✉️ zaroon.rentals@outlook.com</p>
+        <p>🕒 Visit us: Mon-Sat 10am - 6pm (by appointment)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about-section" class="section">
+    <div class="container">
+      <div class="about-content animate-up">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 style="font-size:2rem;">About Zaroon Rentals</h2>
+            <p style="font-size:1.1rem; margin: 20px 0 10px;">🏠 Your trusted partner for premium monthly rentals in Federal B Area, Karachi.</p>
+            <p>Zaroon Rentals was founded by <strong>Mr. Zaroon Ahmed</strong> — a passionate property manager with over 10 years of experience in creating comfortable, well-maintained homes for families and professionals. Our vision is to redefine rental living by combining transparency, modern amenities, and genuine hospitality.</p>
+            <h3>📌 Why choose us?</h3>
+            <p>✨ All properties are located in Ishaqabad C28 (just minutes from main markets). <br> ✨ Monthly rental plans with zero hidden fees. <br> ✨ 24/7 maintenance support & secure premises. <br> ✨ Personal supervision by Zaroon himself.</p>
+            <h3>🏘️ Our portfolio</h3>
+            <p>We currently manage 4 premium floors in the heart of Federal B Area. Each unit is freshly painted, has backup electricity, water supply, and dedicated parking. We believe a home should bring peace of mind — that’s why we inspect every corner before a new tenant moves in.</p>
+            <h3>🤝 Community focus</h3>
+            <p>We treat tenants like family. Whether you need a short-term stay or a long-term nest, Zaroon Rentals ensures a smooth experience from viewing to move-out.</p>
+          </div>
+          <img src="./images/team.png" alt="Zaroon & team" class="about-image">
+                  </div>
+        <div style="margin-top: 48px; background:#f8f0e4; border-radius: 28px; padding: 28px; text-align:center;">
+          <span>🖼️ GALLERY SPACE — actual interior/exterior photos will be uploaded soon</span>
+          <div style="display:flex; gap:20px; justify-content:center; margin-top:20px; flex-wrap:wrap;">
+            <div style="background:#d9cbaf; width:130px; height:90px; border-radius:20px; display:flex; align-items:center; justify-content:center;"><img src="./images/Gemini_Generated_Image_e4xpsre4xpsre4xp.png" alt="ff" style="background:#d9cbaf; width:130px; height:90px; border-radius:20px; display:flex; align-items:center; justify-content:center;"></div>
+            <div style="background:#d9cbaf; width:130px; height:90px; border-radius:20px; display:flex; align-items:center; justify-content:center;"><img src="./images/Gemini_Generated_Image_8b4wq8b4wq8b4wq8.png" alt="vf" style="background:#d9cbaf; width:130px; height:90px; border-radius:20px; display:flex; align-items:center; justify-content:center;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING SECTION (Public form, no database visible) -->
+  <section id="booking-section" class="section">
+    <div class="container">
+      <div class="booking-form-card animate-up">
+        <h2 style="font-size:2rem;">📋 Book a House (Monthly Rental)</h2>
+        <p>Fill the form below — your booking request will be sent to Zaroon's team.</p>
+        <form id="bookingForm">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="fullName" required placeholder="e.g., Ahmed Raza">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" id="phone" required placeholder="+92 XXX XXXXXXX">
+          </div>
+          <div class="form-group">
+            <label>Select House (Ishaqabad C28)</label>
+            <select id="houseSelect" required>
+              <option value="">-- choose floor --</option>
+              <option value="Ishaqabad C28 - 1st Floor (2 bed, 1 bath)">🏠 1st Floor - 2 bed, 1 bath | PKR 25,000/mo</option>
+              <option value="Ishaqabad C28 - 2nd Floor (2 bed, 1 bath)">🏠 2nd Floor - 2 bed, 1 bath | PKR 24,000/mo</option>
+              <option value="Ishaqabad C28 - 3rd Floor (3 bed, 2 bath)">🏠 3rd Floor - 3 bed, 2 bath | PKR 32,000/mo</option>
+              <option value="Ishaqabad C28 - 4th Floor (1 bed, 1 bath)">🏠 4th Floor - 1 bed, 1 bath | PKR 18,000/mo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Preferred Move-in Date</label>
+            <input type="date" id="moveinDate" required>
+          </div>
+          <div class="form-group">
+            <label>Additional Message (optional)</label>
+            <textarea rows="2" id="message" placeholder="Any special request or visit time..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">✅ Confirm Booking Request</button>
+        </form>
+        <div id="bookingMessage" style="margin-top: 20px; font-weight:500;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN SECTION (Separate page, password protected) -->
+  <section id="admin-section" class="section">
+    <div class="container">
+      <div class="admin-panel">
+        <h2 style="font-size:2rem;">🔐 Admin Dashboard</h2>
+        <p>This area is restricted. Enter password to view and manage all booking records.</p>
+        <div id="adminLoginContainer">
+          <div class="admin-login-area">
+            <input type="password" id="adminPassword" placeholder="Enter admin password" style="width: 280px;">
+            <br>
+            <button id="adminLoginSubmit" class="submit-btn" style="margin-top: 16px;">Login</button>
+            <div id="adminLoginError" style="color: red; margin-top: 12px;"></div>
+          </div>
+        </div>
+        <div id="adminDataPanel" style="display: none;">
+          <div class="admin-controls">
+            <button id="exportExcelBtn" class="export-btn">📎 Export to Excel (CSV)</button>
+            <button id="clearAllBookingsBtn" class="export-btn clear-btn">🗑️ Clear all bookings</button>
+            <span id="adminStatusBadge" class="status-badge">✅ Admin mode active</span>
+          </div>
+          <div class="bookings-table-wrapper">
+            <table id="bookingsTable">
+              <thead>
+                <tr><th>Name</th><th>Email</th><th>Phone</th><th>House</th><th>Move-in Date</th><th>Request Date</th> </tr>
+              </thead>
+              <tbody id="bookingsTbody">
+                <tr><td colspan="6" style="text-align:center;">Loading...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🏡 Zaroon Rentals</h4>
+        <p>📍 Federal B Area, Block 1, House No B19, Karachi</p>
+        <p>📞 +92 321 111 2233</p>
+        <p>✉️ zaroon.rentals@outlook.com</p>
+      </div>
+      <div class="footer-col">
+        <h4>📍 Properties</h4>
+        <p>Ishaqabad C28 (Floor 1-4)</p>
+        <p>Monthly rentals • Fully furnished options</p>
+        <p>Safe & family-friendly</p>
+      </div>
+      <div class="footer-col">
+        <h4>🕒 Office hours</h4>
+        <p>Mon - Fri: 10am – 6pm</p>
+        <p>Sat: 11am – 3pm</p>
+        <p>Sunday: closed (emergency support available)</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Zaroon Rentals — Integrity & comfort. 
+      <a href="#" id="adminNavLink" style="color: #dcd0bd; text-decoration: underline; margin-left: 12px;">Admin Login</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ----- HOUSE DATA (4 floors Ishaqabad C28) -----
+  var houses = [
+    { id: 1, title: "Ishaqabad C28 - 1st Floor", desc: "Spacious 2 bedroom, 1 bathroom, modern kitchen", price: "PKR 25,000/month", beds: "2 Beds", baths: "1 Bath", area: "1000 sqft", floor: "1st Floor", fullAddr: "Ishaqabad C28, 1st Floor, Federal B Area" },
+    { id: 2, title: "Ishaqabad C28 - 2nd Floor", desc: "Cozy 2 bedroom unit, large lounge, great ventilation", price: "PKR 24,000/month", beds: "2 Beds", baths: "1 Bath", area: "1000 sqft", floor: "2nd Floor" },
+    { id: 3, title: "Ishaqabad C28 - 3rd Floor", desc: "Family sized 3 bedroom, 2 baths, terrace access", price: "PKR 32,000/month", beds: "3 Beds", baths: "2 Baths", area: "1350 sqft", floor: "3rd Floor" },
+    { id: 4, title: "Ishaqabad C28 - 4th Floor", desc: "Smart 1 bedroom suite, ideal for singles/couples", price: "PKR 18,000/month", beds: "1 Bed", baths: "1 Bath", area: "700 sqft", floor: "4th Floor" }
+  ];
+
+  // render home houses grid
+  function renderHouses() {
+    var grid = document.getElementById('houses-grid');
+    if(!grid) return;
+    grid.innerHTML = houses.map(house => `
+      <div class="house-card">
+       <img src="./images/Gemini_Generated_Image_vwxkwsvwxkwsvwxk.png" alt="${house.title}" class="img-placeholder">
+        <div class="house-details">
+          <h3>${house.title}</h3>
+          <div class="price">${house.price}</div>
+          <div class="features">
+            <span>🛏️ ${house.beds}</span>
+            <span>🛁 ${house.baths}</span>
+            <span>📐 ${house.area}</span>
+          </div>
+          <p>${house.desc}</p>
+          <button class="book-now-btn" data-house-floor="${house.floor}">📅 Book this house</button>
+        </div>
+      </div>
+    `);
+    document.querySelectorAll('.book-now-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        var floor = btn.getAttribute('data-house-floor');
+        showSection('booking');
+        var selectEl = document.getElementById('houseSelect');
+        if(selectEl && floor) {
+          let valToSet = "";
+          if(floor === "1st Floor") valToSet = "Ishaqabad C28 - 1st Floor (2 bed, 1 bath)";
+          else if(floor === "2nd Floor") valToSet = "Ishaqabad C28 - 2nd Floor (2 bed, 1 bath)";
+          else if(floor === "3rd Floor") valToSet = "Ishaqabad C28 - 3rd Floor (3 bed, 2 bath)";
+          else if(floor === "4th Floor") valToSet = "Ishaqabad C28 - 4th Floor (1 bed, 1 bath)";
+          if(valToSet) selectEl.value = valToSet;
+        }
+        document.querySelector('#booking-section').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
+  // --- Database (localStorage) ---
+  let bookings = [];
+
+  function loadBookingsFromStorage() {
+    var stored = localStorage.getItem('zaroon_rentals_bookings');
+    bookings = stored ? JSON.parse(stored) : [];
+    if(document.getElementById('adminDataPanel').style.display === 'block') {
+      renderBookingsTable();
+    }
+  }
+
+  function saveBookingsToStorage() {
+    localStorage.setItem('zaroon_rentals_bookings', JSON.stringify(bookings));
+    if(document.getElementById('adminDataPanel').style.display === 'block') {
+      renderBookingsTable();
+    }
+  }
+
+  function addBooking(bookingData) {
+    var newBooking = {
+      id: Date.now(),
+      ...bookingData,
+      requestDate: new Date().toLocaleString()
+    };
+    bookings.unshift(newBooking);
+    saveBookingsToStorage();
+    return newBooking;
+  }
+
+  function deleteAllBookings() {
+    if(confirm("⚠️ Are you sure you want to delete ALL booking records? This cannot be undone.")) {
+      bookings = [];
+      saveBookingsToStorage();
+      alert("All bookings cleared.");
+    }
+  }
+
+  function renderBookingsTable() {
+    var tbody = document.getElementById('bookingsTbody');
+    if(!tbody) return;
+    if(bookings.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">📭 No bookings yet.</td></tr>';
+      return;
+    }
+    tbody.innerHTML = bookings.map(b => `
+      <tr>
+        <td>${escapeHtml(b.fullName)}</td>
+        <td>${escapeHtml(b.email)}</td>
+        <td>${escapeHtml(b.phone)}</td>
+        <td>${escapeHtml(b.house)}</td>
+        <td>${escapeHtml(b.moveinDate)}</td>
+        <td>${escapeHtml(b.requestDate)}</td>
+      </tr>
+    `).join('');
+  }
+
+  function escapeHtml(str) { if(!str) return ''; return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;});}
+
+  // export to excel (CSV)
+  function exportToExcel() {
+    if(bookings.length === 0) {
+      alert("No bookings to export.");
+      return;
+    }
+    var headers = ["Full Name", "Email", "Phone", "House", "Move-in Date", "Request Date"];
+    var rows = bookings.map(b => [b.fullName, b.email, b.phone, b.house, b.moveinDate, b.requestDate]);
+    var csvContent = [headers, ...rows].map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(",")).join("\n");
+    var blob = new Blob(["\uFEFF" + csvContent], { type: "text/csv;charset=utf-8;" });
+    var link = document.createElement("a");
+    var url = URL.createObjectURL(blob);
+    link.href = url;
+    link.setAttribute("download", "zaroon_bookings.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+
+  // Admin login
+  function initAdminLogin() {
+    var loginBtn = document.getElementById('adminLoginSubmit');
+    var passwordInput = document.getElementById('adminPassword');
+    var loginContainer = document.getElementById('adminLoginContainer');
+    var dataPanel = document.getElementById('adminDataPanel');
+    var errorDiv = document.getElementById('adminLoginError');
+    
+    loginBtn.addEventListener('click', () => {
+      var pwd = passwordInput.value;
+      if(pwd === "zaroonAdmin") {
+        loginContainer.style.display = "none";
+        dataPanel.style.display = "block";
+        loadBookingsFromStorage(); // refresh table
+        errorDiv.innerHTML = "";
+      } else {
+        errorDiv.innerHTML = "Incorrect password. Access denied.";
+      }
+    });
+  }
+
+  // booking form handler (public)
+  function initBookingForm() {
+    var form = document.getElementById('bookingForm');
+    if(!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      var fullName = document.getElementById('fullName').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var house = document.getElementById('houseSelect').value;
+      var moveinDate = document.getElementById('moveinDate').value;
+      var message = document.getElementById('message').value;
+
+      if(!fullName || !email || !phone || !house || !moveinDate) {
+        document.getElementById('bookingMessage').innerHTML = "<span style='color:#bc6c25;'>❌ Please fill all required fields.</span>";
+        return;
+      }
+      addBooking({ fullName, email, phone, house, moveinDate, message: message || "" });
+      document.getElementById('bookingMessage').innerHTML = "<span style='color:#2c6e2c;'>✅ Booking request saved! We'll contact you within 24h.</span>";
+      form.reset();
+      setTimeout(() => document.getElementById('bookingMessage').innerHTML = "", 3000);
+    });
+  }
+
+  // --- navigation & section switching ---
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+      section.classList.remove('active-section');
+    });
+    document.getElementById(`${sectionId}-section`).classList.add('active-section');
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('data-section') === sectionId) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  function setupNavigation() {
+    var navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        var section = link.getAttribute('data-section');
+        showSection(section);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+    var exploreBtn = document.getElementById('exploreBookBtn');
+    if(exploreBtn) exploreBtn.addEventListener('click', () => showSection('booking'));
+    // admin link in footer
+    var adminNavLink = document.getElementById('adminNavLink');
+    if(adminNavLink) {
+      adminNavLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSection('admin');
+        // reset admin login area if needed
+        var loginContainer = document.getElementById('adminLoginContainer');
+        var dataPanel = document.getElementById('adminDataPanel');
+        if(loginContainer) loginContainer.style.display = "block";
+        if(dataPanel) dataPanel.style.display = "none";
+        var pwdInput = document.getElementById('adminPassword');
+        if(pwdInput) pwdInput.value = "";
+        var errorDiv = document.getElementById('adminLoginError');
+        if(errorDiv) errorDiv.innerHTML = "";
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+
+  // initial load
+  function init() {
+    renderHouses();
+    loadBookingsFromStorage(); // just load data into variable
+    initBookingForm();
+    initAdminLogin();
+    setupNavigation();
+    document.getElementById('exportExcelBtn').addEventListener('click', exportToExcel);
+    document.getElementById('clearAllBookingsBtn').addEventListener('click', deleteAllBookings);
+  }
+
+  init();
+</script>
+</body>
+</html>
