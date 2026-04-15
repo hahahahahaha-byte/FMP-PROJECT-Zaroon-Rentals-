@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Prime Rentals · Book a Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>🏡 Prime Rentals</h1>
+        <span>Federal B Area · by Farooq Raza Khan</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html">📅 Booking</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="form-card">
+      <h2 style="font-size:2.2rem; margin-bottom:12px; color:#0f4247;">📋 Book a house (monthly rental)</h2>
+      <p style="margin-bottom:32px; color:#2a5a63;">Your request goes directly to Prime Rentals. We'll confirm within 24 hours.</p>
+      
+      <form id="bookingForm">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="bookName" required placeholder="e.g., Sara Ali">
+          </div>
+          <div class="form-group">
+            <label>Email *</label>
+            <input type="email" id="bookEmail" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone *</label>
+            <input type="tel" id="bookPhone" required placeholder="+92 XXX XXXXXXX">
+          </div>
+          <div class="form-group">
+            <label>Select House *</label>
+            <select id="bookHouse" required>
+              <option value="">-- choose floor --</option>
+              <option value="1st Floor (2 bed, 1 bath) · PKR 25k">🏠 1st Floor - 2 bed, 1 bath | 25,000/mo</option>
+              <option value="2nd Floor (2 bed, 1 bath) · PKR 24k">🏠 2nd Floor - 2 bed, 1 bath | 24,000/mo</option>
+              <option value="3rd Floor (3 bed, 2 bath) · PKR 32k">🏠 3rd Floor - 3 bed, 2 bath | 32,000/mo</option>
+              <option value="4th Floor (1 bed, 1 bath) · PKR 18k">🏠 4th Floor - 1 bed, 1 bath | 18,000/mo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Move-in date *</label>
+            <input type="date" id="bookMovein" required>
+          </div>
+          <div class="form-group" style="grid-column:span 2;">
+            <label>Additional notes (optional)</label>
+            <textarea rows="3" id="bookNotes" placeholder="Any special requests, preferred viewing time..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-primary" style="margin-top:24px; width:100%;">✅ Submit booking request</button>
+        <div id="bookingFeedback" class="status-message"></div>
+      </form>
+    </div>
+    
+    <div class="office-card" style="margin-top:0;">
+      <h3 style="font-size:1.5rem; color:#0f565c;">📞 Need help choosing?</h3>
+      <p style="margin:16px 0;">Call us at <strong>+92 321 111 2233</strong> or visit our office at House No B19, Block 1, Federal B Area, Karachi.</p>
+      <p>We're available Mon–Sat, 10am–6pm to assist you personally.</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>🏡 Prime Rentals</h4><p>Federal B Area, Block 1<br>Karachi</p><p>Owner: Farooq Raza Khan</p></div>
+      <div><h4>📞 Contact</h4><p>+92 321 111 2233<br>hello@primerentals.pk</p></div>
+      <div><h4>🕒 Hours</h4><p>Mon–Sat 10am–6pm</p></div>
+    </div>
+    <div class="copyright">© 2025 Prime Rentals — Farooq Raza Khan · comfort & integrity</div>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

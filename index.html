@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Prime Rentals · Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>🏡 Prime Rentals</h1>
+        <span>Federal B Area · by Farooq Raza Khan</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="booking.html">📅 Booking</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <h2>Monthly rentals with<br>Prime confidence</h2>
+        <p>📍 Federal B Area, Block 1 · Ishaqabad C28 (Floors 1-4). Managed by Farooq Raza Khan.</p>
+        <a href="booking.html" class="btn-primary">Find your home →</a>
+      </div>
+      <img src="./images/exterior.png" alt="Prime Rentals exterior" class="hero-img">
+    </div>
+
+    <h2 class="section-title">✨ Available homes (Ishaqabad C28)</h2>
+    
+    <div class="houses-grid">
+      <div class="house-card">
+        <img src="./images/Gemini_Generated_Image_vwxkwsvwxkwsvwxk.png" alt="1st Floor" class="card-img">
+        <div class="house-details">
+          <h3>Ishaqabad C28 · 1st Floor</h3>
+          <div class="price">PKR 25,000/mo</div>
+          <div class="features"><span>🛏️ 2 Beds</span><span>🛁 1 Bath</span><span>📐 1000 sqft</span></div>
+          <p>Spacious 2 bedroom, modern kitchen, family friendly.</p>
+          <button class="book-btn" onclick="window.location.href='booking.html?floor=1st'">📅 Book this floor</button>
+        </div>
+      </div>
+      <div class="house-card">
+        <img src="./images/Gemini_Generated_Image_vwxkwsvwxkwsvwxk.png" alt="2nd Floor" class="card-img">
+        <div class="house-details">
+          <h3>Ishaqabad C28 · 2nd Floor</h3>
+          <div class="price">PKR 24,000/mo</div>
+          <div class="features"><span>🛏️ 2 Beds</span><span>🛁 1 Bath</span><span>📐 1000 sqft</span></div>
+          <p>Cozy 2 bedroom, large lounge, great ventilation.</p>
+          <button class="book-btn" onclick="window.location.href='booking.html?floor=2nd'">📅 Book this floor</button>
+        </div>
+      </div>
+      <div class="house-card">
+        <img src="./images/Gemini_Generated_Image_vwxkwsvwxkwsvwxk.png" alt="3rd Floor" class="card-img">
+        <div class="house-details">
+          <h3>Ishaqabad C28 · 3rd Floor</h3>
+          <div class="price">PKR 32,000/mo</div>
+          <div class="features"><span>🛏️ 3 Beds</span><span>🛁 2 Baths</span><span>📐 1350 sqft</span></div>
+          <p>Family sized 3 bedroom, terrace access.</p>
+          <button class="book-btn" onclick="window.location.href='booking.html?floor=3rd'">📅 Book this floor</button>
+        </div>
+      </div>
+      <div class="house-card">
+        <img src="./images/Gemini_Generated_Image_vwxkwsvwxkwsvwxk.png" alt="4th Floor" class="card-img">
+        <div class="house-details">
+          <h3>Ishaqabad C28 · 4th Floor</h3>
+          <div class="price">PKR 18,000/mo</div>
+          <div class="features"><span>🛏️ 1 Bed</span><span>🛁 1 Bath</span><span>📐 700 sqft</span></div>
+          <p>Smart 1 bedroom suite, ideal for singles/couples.</p>
+          <button class="book-btn" onclick="window.location.href='booking.html?floor=4th'">📅 Book this floor</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="office-card">
+      <h3 style="font-size:1.8rem; color:#0f565c;">🏢 Prime Rentals office · Federal B Area</h3>
+      <p style="font-weight:500; margin:16px 0;">House No B19, Block 1, Federal B Area, Karachi</p>
+      <p>📞 +92 321 111 2233  |  ✉️ hello@primerentals.pk</p>
+      <p>🕒 Mon–Sat 10am – 6pm (by appointment)</p>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>🏡 Prime Rentals</h4><p>Federal B Area, Block 1<br>Karachi</p><p>Owner: Farooq Raza Khan</p></div>
+      <div><h4>📞 Contact</h4><p>+92 321 111 2233<br>hello@primerentals.pk</p></div>
+      <div><h4>🕒 Hours</h4><p>Mon–Sat 10am–6pm</p></div>
+    </div>
+    <div class="copyright">© 2025 Prime Rentals — Farooq Raza Khan · comfort & integrity</div>
+  </div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>
